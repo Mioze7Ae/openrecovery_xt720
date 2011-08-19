@@ -95,6 +95,7 @@ MAIN_MENU_FILE=/menu/init.menu
 
 echo "Main Menu" > "$MAIN_MENU_FILE"
 echo "Reboot System:reboot:*" >> "$MAIN_MENU_FILE"
+echo "Power Off:shell:power_off.sh" >> "$MAIN_MENU_FILE"
 echo "Settings:menu:settings.menu" >> "$MAIN_MENU_FILE"
 echo "USB Mass Storage Mode:shell:usb_mass_storage.sh" >> "$MAIN_MENU_FILE"
 
