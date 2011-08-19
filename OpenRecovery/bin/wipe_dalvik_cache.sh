@@ -1,4 +1,7 @@
 #!/sbin/bash
 
-rm -Rf /data/dalvik-cache/*
-echo "Succesfully wiped dalvik-cache."
+for x in /{data,cache,sddata}/dalvik-cache /cache/dc ; do
+    echo -n "Wiping $x... "
+    rm -Rf $x/*
+    echo done
+done
