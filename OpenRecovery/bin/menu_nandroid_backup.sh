@@ -20,10 +20,10 @@ fi
 echo "Cdrom:tag:nand_bkp_cdrom" >> "$MENU_FILE"
 
 echo "Boot:tag:nand_bkp_boot" >> "$MENU_FILE"
-echo "Baseband Software:tag:nand_bkp_bpsw" >> "$MENU_FILE"
-echo "Linux Bootloader:tag:nand_bkp_lbl" >> "$MENU_FILE"
+#echo "Baseband Software:tag:nand_bkp_bpsw" >> "$MENU_FILE"
+#echo "Linux Bootloader:tag:nand_bkp_lbl" >> "$MENU_FILE"
 echo "Logo:tag:nand_bkp_logo" >> "$MENU_FILE"
-echo "Device Tree:tag:nand_bkp_devtree" >> "$MENU_FILE"
+#echo "Device Tree:tag:nand_bkp_devtree" >> "$MENU_FILE"
 
 #use /sddata to see, as the nandroid is configured to mount /sddata
 if [ -d /sddata ]; then
