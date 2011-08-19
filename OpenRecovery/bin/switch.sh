@@ -141,6 +141,9 @@ chmod 0755 e2fsck
 cp -f /sdcard/OpenRecovery/sbin/tune2fs /sbin/tune2fs
 chmod 0755 /sbin/tune2fs
 
+cp -f /sdcard/OpenRecovery/sbin/fsck_msdos /sbin/fsck_msdos
+chmod 0755 /sbin/fsck_msdos
+
 cp -f /sdcard/OpenRecovery/sbin/erase_image-or /sbin/erase_image-or
 chmod 0755 /sbin/erase_image-or
 ln -s /sbin/erase_image-or /sbin/erase_image
