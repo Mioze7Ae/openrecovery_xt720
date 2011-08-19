@@ -99,6 +99,7 @@ echo "Power Off:shell:power_off.sh" >> "$MAIN_MENU_FILE"
 echo "Toggle Display Brightness:shell:toggle_brightness.sh" >> "$MAIN_MENU_FILE"
 echo "Settings:menu:settings.menu" >> "$MAIN_MENU_FILE"
 echo "USB Mass Storage Mode:shell:usb_mass_storage.sh" >> "$MAIN_MENU_FILE"
+echo "SD Card Utilities:scripted_menu:sdutil.menu:/app/sdutil/menu.sh" >> "$MAIN_MENU_FILE"
 
 #only if not a tablet phone
 if [ $TABLET -eq 0 ]; then

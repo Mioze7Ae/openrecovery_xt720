@@ -1,6 +1,6 @@
 #!/sbin/sh
 
-echo "Configure SD partitions" > "$MENU_FILE"
+echo "SD Card Utilities" > "$MENU_FILE"
 echo "Go Back:menu:.." >> "$MENU_FILE"
 echo "Scan FAT partition for errors:shell:/app/sdutil/fsck_msdos.sh" >> "$MENU_FILE" 
 if [ -b /dev/block/mmcblk0p2 ] ; then
@@ -53,5 +53,8 @@ fdisk -l /dev/block/mmcblk0 | grep ^/dev/ | cut -c 1-28,63- | while read part
 do
 	echo "$part:label:*" >> "$MENU_FILE"
 done
-
+echo "*:break:*" >> "$MENU_FILE"
+if [ ! -z "$ext" ] ; then
+    echo "Ext partition appears to be $ext:label:*" >> "$MENU_FILE"
+fi
 
