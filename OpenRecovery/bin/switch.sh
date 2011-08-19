@@ -138,6 +138,9 @@ chmod 0755 /sbin/e2fsck-or
 ln -s /sbin/e2fsck-or /sbin/e2fsck
 chmod 0755 e2fsck
 
+cp -f /sdcard/OpenRecovery/sbin/tune2fs /sbin/tune2fs
+chmod 0755 /sbin/tune2fs
+
 cp -f /sdcard/OpenRecovery/sbin/erase_image-or /sbin/erase_image-or
 chmod 0755 /sbin/erase_image-or
 ln -s /sbin/erase_image-or /sbin/erase_image
@@ -193,14 +196,17 @@ LVER=`uname -r | awk '{split($0,a,"-"); print a[1]}'`
 #modules
 if [ -d "/lib/modules/$LVER" ]; then
 
-	#ext2.ko
+	#ext4.ko
 	MODPATH="/lib/modules/$LVER"
 
 	#ext2 partition on sdcard
-	if [ -b /dev/block/mmcblk0p2 ] && [ -f "$MODPATH/ext2.ko" ]; then
+	if [ -b /dev/block/mmcblk0p2 ] && [ -f "$MODPATH/ext4.ko" ] && [ -f "$MODPATH/jbd2.ko" ] && [ -f "$MODPATH/crc16.ko" ]; then
 		mkdir /sddata
-		insmod "$MODPATH/ext2.ko"
-		echo "/dev/block/mmcblk0p2          /sddata         ext2            defaults        0 0" >> /etc/fstab
+		insmod "$MODPATH/mbcache.ko"
+		insmod "$MODPATH/jbd2.ko"
+		insmod "$MODPATH/crc16.ko"
+		insmod "$MODPATH/ext4.ko"
+		echo "/dev/block/mmcblk0p2          /sddata         auto            defaults        0 0" >> /etc/fstab
 		e2fsck -p /dev/block/mmcblk0p2 
 	fi
 	
