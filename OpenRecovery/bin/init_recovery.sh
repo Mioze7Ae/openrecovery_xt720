@@ -38,7 +38,7 @@ fi
 
 export APP_MENU_FILE="/menu/app.menu"
 
-echo "Application Menu" > "$APP_MENU_FILE"
+echo "Utilities" > "$APP_MENU_FILE"
 echo "Go Back:menu:.." >> "$APP_MENU_FILE"
 
 if [ -d /sdcard/OpenRecovery/app/ ]
@@ -104,7 +104,7 @@ if [ $TABLET -eq 0 ]; then
 fi	
 
 echo "Nandroid:menu:nand.menu" >> "$MAIN_MENU_FILE"
-echo "Application Menu:menu:app.menu" >> "$MAIN_MENU_FILE"
+echo "Utilities:menu:app.menu" >> "$MAIN_MENU_FILE"
 
 #only if not bootstrap
 if [ ! -f /etc/bootstrap ]; then
