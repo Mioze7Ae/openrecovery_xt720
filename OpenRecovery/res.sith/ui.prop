@@ -1,0 +1,32 @@
+#Color properties
+color3.LED=#100
+color32.background=#000000A0
+color32.title=#FF131FFF
+color32.menu=#FF131FFF
+color32.selection=#484848FF
+color32.script=#FFB300FF
+
+#Console color properties
+color24.console.header=#CD0000
+color24.console.background=#000000
+color24.console.front=#E5E5E5
+termansicolor.console.name=31
+termansicolor.console.path=33
+
+#Console terminal colors
+color24.console.termclr30=#000000
+color24.console.termclr31=#CD0000
+color24.console.termclr32=#00CD00
+color24.console.termclr33=#CDCD00
+color24.console.termclr34=#0000EE
+color24.console.termclr35=#CD00CD
+color24.console.termclr36=#00CDCD
+color24.console.termclr37=#E5E5E5
+color24.console.termclr90=#7F7F7F
+color24.console.termclr91=#FF0000
+color24.console.termclr92=#00FF00
+color24.console.termclr93=#FFFF00
+color24.console.termclr94=#5C5BFF
+color24.console.termclr95=#FF00FF
+color24.console.termclr96=#00FFFF
+color24.console.termclr97=#FFFFFF

@@ -1,0 +1,9 @@
+#!/sbin/bash
+
+if [ "$TZ" == "" ]; then
+	if [ -f /etc/timezone ]; then
+		export TZ=`awk 'NR==1' /etc/timezone`
+	fi
+fi
+
+busybox date $@

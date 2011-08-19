@@ -1,0 +1,8 @@
+#!/sbin/bash
+
+if [ "$1" == "openrecovery" ]; then
+	touch "/cache/.boot_to_or"
+	coolbox reboot
+else
+	coolbox reboot $*
+fi

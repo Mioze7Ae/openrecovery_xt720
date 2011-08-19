@@ -1,0 +1,74 @@
+# /etc/bash/bashrc
+#
+# This file is sourced by all *interactive* bash shells on startup,
+# including some apparently interactive shells such as scp and rcp
+# that can't tolerate any output.  So make sure this doesn't display
+# anything or bad things will happen !
+
+
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain from
+# outputting anything in those cases.
+if [[ $- != *i* ]] ; then
+	# Shell is non-interactive.  Be done now!
+	return
+fi
+
+# Bash won't get SIGWINCH if another process is in the foreground.
+# Enable checkwinsize so that bash will check the terminal size when
+# it regains control.  #65623
+# http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
+shopt -s checkwinsize
+
+# Enable history appending instead of overwriting.  #139609
+shopt -s histappend
+
+# display
+alias lcd-off='echo 0 > /sys/class/leds/lcd-backlight/brightness'
+alias lcd-on='echo 2 > /sys/class/leds/lcd-backlight/brightness'
+
+# LEDs
+alias redled-on='echo 255 > /sys/class/leds/red/brightness'
+alias redled-off='echo 0 > /sys/class/leds/red/brightness'
+alias greenled-on='echo 255 > /sys/class/leds/green/brightness'
+alias greenled-off='echo 0 > /sys/class/leds/green/brightness'
+alias blueled-on='echo 255 > /sys/class/leds/blue/brightness'
+alias blueled-off='echo 0 > /sys/class/leds/blue/brightness'
+
+HOME=/sdcard
+TERMINFO=/etc/terminfo
+
+# Check if it is a Open Recovery Terminal Emulator, if so, allow theme values and always have colors
+# Open Recovery Terminal Emulator sets enviromental variable OPEN_RECOVERY_CONSOLE to 1
+if [ "$OPEN_RECOVERY_CONSOLE" == "1" ]; then
+	
+	# Terminal Properties
+	TERM=vt100
+	
+	NAMECLR=`sed -n "s/termansicolor.console.name=//p" /res/ui.prop`
+	PATHCLR=`sed -n "s/termansicolor.console.path=//p" /res/ui.prop`
+	
+	if [ "$NAMECLR" == "" ]; then
+		NAMECLR=31
+	fi
+	
+	if [ "$PATHCLR" == "" ]; then
+		PATHCLR=34
+	fi
+	
+	alias ls='ls --color'
+	PS1='\[\033[01;${NAMECLR}m\]Milestone-Recovery\[\033[01;${PATHCLR}m\] \w \n\[\033[00m\]\$ '
+	
+else
+	
+	if [ -f /etc/bash/.nobashcolors ]; then
+		TERM=dumb
+		PS1='Milestone-Recovery:\w\n\$ '
+	else
+		#assume Linux terminal
+		TERM=linux
+		alias ls='ls --color'
+		PS1='\[\033[01;31m\]Milestone-Recovery\[\033[01;34m\] \w \n\[\033[00m\]\$ '
+	fi
+	
+fi
