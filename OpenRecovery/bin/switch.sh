@@ -202,6 +202,7 @@ if [ -d "/lib/modules/$LVER" ]; then
 	#ext2 partition on sdcard
 	if [ -b /dev/block/mmcblk0p2 ] && [ -f "$MODPATH/ext4.ko" ] && [ -f "$MODPATH/jbd2.ko" ] && [ -f "$MODPATH/crc16.ko" ]; then
 		mkdir /sddata
+		ln -s /sddata /sd-ext
 		insmod "$MODPATH/mbcache.ko"
 		insmod "$MODPATH/jbd2.ko"
 		insmod "$MODPATH/crc16.ko"
