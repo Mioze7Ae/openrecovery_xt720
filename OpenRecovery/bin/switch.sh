@@ -138,11 +138,20 @@ chmod 0755 /sbin/e2fsck-or
 ln -s /sbin/e2fsck-or /sbin/e2fsck
 chmod 0755 e2fsck
 
-cp -f /sdcard/OpenRecovery/sbin/tune2fs /sbin/tune2fs
-chmod 0755 /sbin/tune2fs
+cp -f /sdcard/OpenRecovery/sbin/tune2fs-or /sbin/tune2fs-or
+chmod 0755 /sbin/tune2fs-or
+ln -fs /sbin/tune2fs-or /sbin/tune2fs
+chmod 0755 tune2fs
 
-cp -f /sdcard/OpenRecovery/sbin/fsck_msdos /sbin/fsck_msdos
-chmod 0755 /sbin/fsck_msdos
+cp -f /sdcard/OpenRecovery/sbin/mke2fs-or /sbin/mke2fs-or
+chmod 0755 /sbin/mke2fs-or
+ln -fs /sbin/mke2fs-or /sbin/mke2fs
+chmod 0755 mke2fs
+
+cp -f /sdcard/OpenRecovery/sbin/fsck_msdos-or /sbin/fsck_msdos-or
+chmod 0755 /sbin/fsck_msdos-or
+ln -s /sbin/fsck_msdos-or /sbin/fsck_msdos
+chmod 0755 fsck_msdos
 
 cp -f /sdcard/OpenRecovery/sbin/erase_image-or /sbin/erase_image-or
 chmod 0755 /sbin/erase_image-or
