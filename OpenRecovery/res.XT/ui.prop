@@ -1,0 +1,11 @@
+#Color properties
+color3.LED=#111
+color32.background=#000000A0
+color32.menu=#3DFF3DFF
+color32.selection=#000000FF
+color32.script=#3DFF3DFF
+
+#Console color properties
+color24.console.header=#FFFF00
+color24.console.background=#000000
+color24.console.front=#E5E5E5
