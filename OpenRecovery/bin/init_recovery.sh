@@ -44,6 +44,7 @@ echo "Go Back:menu:.." >> "$APP_MENU_FILE"
 echo "*:break:*" >> "$APP_MENU_FILE"
 
 echo "Run Script:scripted_menu:runscript.menu:menu_scripts.sh" >> "$APP_MENU_FILE"
+echo "Re-install orbootstrap:shell:rebootstrap.sh" >> "$APP_MENU_FILE"
 
 #only if not bootstrap
 if [ ! -f /etc/bootstrap ]; then
