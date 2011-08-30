@@ -20,6 +20,13 @@ fi
 
 exec >/sdcard/sdcard-info.txt 2>&1
 date
+cat /sdcard/OpenRecovery/version.txt
+
+echo
+echo Mounted filesystems
+echo -------------------
+cat /proc/mounts
+
 echo
 echo Directory configuration
 echo -----------------------
