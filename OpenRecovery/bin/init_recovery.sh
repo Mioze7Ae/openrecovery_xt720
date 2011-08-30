@@ -51,6 +51,8 @@ if [ ! -f /etc/bootstrap ]; then
 	echo "Root Phone:shell:root.sh" >> "$APP_MENU_FILE"
 fi
 
+echo "*:break:*" >> "$APP_MENU_FILE"
+
 mkdir -p /system/etc/init.d
 chmod 777 /system/etc/init.d
 
