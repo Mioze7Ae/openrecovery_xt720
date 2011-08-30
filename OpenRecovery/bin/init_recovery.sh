@@ -50,8 +50,6 @@ if [ ! -f /etc/bootstrap ]; then
 	echo "Root Phone:shell:root.sh" >> "$APP_MENU_FILE"
 fi
 
-echo "Change Baseband:scripted_menu:customupdate.menu:menu_basebands.sh" >> "$MAIN_MENU_FILE"
-
 mkdir -p /system/etc/init.d
 chmod 777 /system/etc/init.d
 
@@ -141,6 +139,7 @@ fi
 
 echo "Nandroid:menu:nand.menu" >> "$MAIN_MENU_FILE"
 echo "Apply Update:scripted_menu:customupdate.menu:menu_updates.sh" >> "$MAIN_MENU_FILE"
+echo "Change Baseband:scripted_menu:customupdate.menu:menu_basebands.sh" >> "$MAIN_MENU_FILE"
 echo "Wipe Dalvik Cache:shell:wipe_dalvik_cache.sh" >> "$MAIN_MENU_FILE"
 echo "Wipe Data / Factory Reset:wipe_data:*" >> "$MAIN_MENU_FILE"
 echo "Wipe Cache Partition:wipe_cache:*" >> "$MAIN_MENU_FILE"
