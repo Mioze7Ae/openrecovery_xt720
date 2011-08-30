@@ -1,0 +1,5 @@
+#!/sbin/bash
+replacement=s/dalvik.vm.dexopt-cache-only=.*/dalvik.vm.dexopt-cache-only=1/ 
+sed -i $replacement /system/build.prop
+
+rm -Rf /data/dalvik-cache/*

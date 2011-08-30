@@ -1,0 +1,11 @@
+#!/sbin/sh
+
+echo "AutoBoot Recovery"
+echo ""
+
+cp -fR /sdcard/OpenRecovery/mod/etc/init.d/60_autoboot_or.sh /system/etc/init.d/60_autoboot_or
+
+chmod 755 /system/etc/init.d/60_autoboot_or
+chown 0.2000 /system/etc/init.d/60_autoboot_or
+
+sleep 1

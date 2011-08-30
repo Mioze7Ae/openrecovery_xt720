@@ -1,0 +1,40 @@
+#!/sbin/sh
+
+if [ -f "/system/etc/inid.d/10overclock" ];
+then
+echo "remove overclock..."
+rm -f /system/etc/inid.d/10overclock
+fi
+sleep 1;;
+
+if [ -f "/system/etc/inid.d/98governor" ];
+then
+echo "remove governor..."
+rm -f /system/etc/inid.d/98governor
+fi
+sleep 1;;
+
+if [ -f "/system/etc/inid.d/1apps2sd" ];
+then
+echo "remove Apps2sd..."
+rm -f /system/etc/inid.d/1apps2sd
+fi
+sleep 1;;
+
+if [ -f "/system/etc/inid.d/02memhack" ];
+then
+echo "remove Memhack..."
+rm -f /system/etc/inid.d/02memhack
+fi
+
+if [ -f "/system/etc/inid.d/99LedButtonsOff" ];
+then
+echo "remove Led Buttons Auto Off..."
+rm -f /system/etc/inid.d/99LedButtonsOff
+fi
+
+
+sleep 1;;
+
+
+

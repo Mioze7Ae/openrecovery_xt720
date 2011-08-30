@@ -1,0 +1,10 @@
+#!/system/bin/sh
+
+mountsys
+busybox mv /system/xbin/hostsblock /system/etc/hosts
+busybox cp /system/etc/hosts /system/xbin
+busybox mv /system/xbin/hosts /system/xbin/hostsblock
+unmountsys
+sync
+echo 'Ads have been blocked'
+

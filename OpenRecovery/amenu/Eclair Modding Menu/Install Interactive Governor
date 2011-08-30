@@ -1,0 +1,38 @@
+#!/sbin/sh
+
+echo "Interactive Governor"
+echo ""
+echo "copying libs..."
+
+cp -r /sdcard/OpenRecovery/mod/system/lib/modules /system/lib/
+
+cp -f /sdcard/OpenRecovery/mod/system/lib/modules/cpufreq_conservative.ko /system/lib/modules/cpufreq_conservative.ko
+cp -f /sdcard/OpenRecovery/mod/system/lib/modules/cpufreq_interactive.ko /system/lib/modules/cpufreq_interactive.ko
+
+chmod 644 /system/lib/modules/cpufreq_conservative.ko
+chmod 644 /system/lib/modules/cpufreq_interactive.ko
+
+chown -R 0.2000 /system/lib/modules
+
+echo "modifying boot..."
+
+echo "modifying boot..."
+mkdir -p /sdcard/OpenRecovery/backup/bin
+cp -f /system/bin/mot_boot_mode.bin /sdcard/OpenRecovery/backup/bin/mot_boot_mode
+cp -f /sdcard/OpenRecovery/mod/system/bin/mot_boot_mode /system/bin/mot_boot_mode
+chmod 755 /system/bin/mot_boot_mo*
+chown 0.2000 /system/bin/mot_boot_mo*
+
+echo "copying scripts..."
+
+if [ ! -d "/system/bin/boot_script" ];
+then
+mkdir /system/bin/boot_script
+fi
+
+cp -fR /sdcard/OpenRecovery/mod/system/bin/boot_script/72_interactive.sh /system/bin/boot_script/72_governor.sh
+
+chmod -R 755 /system/bin/boot_script
+chown -R 0.2000 /system/bin/boot_script
+
+sleep 1

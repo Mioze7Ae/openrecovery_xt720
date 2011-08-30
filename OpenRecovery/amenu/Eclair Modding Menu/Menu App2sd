@@ -1,0 +1,9 @@
+#!/sbin/sh
+
+echo "Apps2SD Menu" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+echo "Split SDCard (will erase all your data on the SDcard):scripted_menu:app2sd2.menu:menu_app2sd2.sh" >> "$MENU_FILE"
+echo "Install App2SD:shell:app2sd.sh app2sd" >> "$MENU_FILE"
+echo "Install Boothack Only:shell:app2sd.sh hackonly" >> "$MENU_FILE"
+echo "Install App2SD (symlink edition):shell:app2sd.sh app2sdsl" >> "$MENU_FILE"
+echo "Install Boothack Only (symlink edition):shell:app2sd.sh hackonlysl" >> "$MENU_FILE"

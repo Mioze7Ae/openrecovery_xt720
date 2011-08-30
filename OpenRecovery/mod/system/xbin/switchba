@@ -1,0 +1,7 @@
+#!/system/bin/sh
+
+mountsys
+busybox cp /sdcard/bootanimation.zip /system/media
+unmountsys
+sync
+echo 'Switched Boot Animation'

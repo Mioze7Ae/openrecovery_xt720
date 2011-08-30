@@ -1,0 +1,10 @@
+#!/sbin/sh
+
+cp -r /sdcard/OpenRecovery/utility/data/hosts /system/etc/hosts
+
+chmod 777 /system/etc/hosts
+chown -R 0.2000 /system/etc/hosts
+
+echo "Your system is now Ad free"
+
+sleep 1

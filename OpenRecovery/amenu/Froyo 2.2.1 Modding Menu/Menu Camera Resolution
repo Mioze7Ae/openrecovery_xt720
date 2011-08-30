@@ -1,0 +1,9 @@
+#!/sbin/sh
+
+echo "89luca89 Camera Resolution Menu" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+echo "Set Camera to Default (720x480):shell:/sdcard/OpenRecovery/mod/scripts/camera.sh default" >> "$MENU_FILE"
+echo "Set Camera to FitScreen (720x400):shell:/sdcard/OpenRecovery/mod/scripts/camera.sh screen" >> "$MENU_FILE"
+echo "Set Camera to PAL resolution (720x576):shell:/sdcard/OpenRecovery/mod/scripts/camera.sh pal" >> "$MENU_FILE"
+
+

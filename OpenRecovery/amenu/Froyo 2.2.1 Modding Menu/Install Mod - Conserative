@@ -1,0 +1,25 @@
+#!/sbin/sh
+
+echo "conservative Governor"
+echo ""
+echo "copying libs..."
+
+cp -f /sdcard/OpenRecovery/mod/system/lib/modules/cpufreq_interactive22.ko /system/lib/modules/cpufreq_interactive.ko
+cp -f /sdcard/OpenRecovery/mod/system/lib/modules/cpufreq_conservative22.ko /system/lib/modules/cpufreq_conservative.ko
+cp -f /sdcard/OpenRecovery/mod/system/lib/modules/symsearch.ko /system/lib/modules/symsearch.ko
+
+chmod 644 /system/lib/modules/symsearch.ko
+chmod 644 /system/lib/modules/cpufreq_conservative.ko
+chmod 644 /system/lib/modules/cpufreq_interactive.ko
+
+chown -R 0.2000 /system/lib/modules
+
+echo "copying scripts..."
+
+cp -fR /sdcard/OpenRecovery/mod/etc/init.d/72_conservative.sh /system/etc/init.d/98governor
+
+chmod 755 /etc/init.d/98governor
+chown -R 0.2000 /etc/init.d
+
+
+sleep 1

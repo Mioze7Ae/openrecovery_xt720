@@ -1,0 +1,12 @@
+#!/sbin/sh
+
+echo "mod. Scripts Menu" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+echo "Install Nano editor:shell:/sdcard/OpenRecovery/mod/scripts/nano.sh" >> "$MENU_FILE"
+echo "Install Camerasound on/off scripts:shell:/sdcard/OpenRecovery/mod/scripts/soundcamera.sh" >> "$MENU_FILE"
+echo "Install Mount/unmount system scripts:shell:/sdcard/OpenRecovery/mod/scripts/sysmount.sh" >> "$MENU_FILE"
+echo "Install switch BootAnimation script:shell:/sdcard/OpenRecovery/mod/scripts/switchba.sh" >> "$MENU_FILE"
+echo "Install Move cache scripts:shell:/sdcard/OpenRecovery/mod/scripts/movecache.sh" >> "$MENU_FILE"
+echo "Install show/hide ads scripts:shell:/sdcard/OpenRecovery/mod/scripts/ads.sh" >> "$MENU_FILE"
+echo "Install Bash:shell:/sdcard/OpenRecovery/mod/scripts/bash.sh" >> "$MENU_FILE"
+echo "Install script to Zipalign all system apk:shell:/sdcard/OpenRecovery/mod/scripts/zipalign.sh" >> "$MENU_FILE"

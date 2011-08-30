@@ -1,0 +1,49 @@
+#!/sbin/sh
+
+echo "back up original libs..."
+if [ ! -d "/sdcard/OpenRecovery/backup/jitbak" ];
+	then
+		mkdir -p /sdcard/OpenRecovery/backup/jitbak/bin
+		mkdir -p /sdcard/OpenRecovery/backup/jitbak/lib
+		cp -f /system/build.prop /sdcard/OpenRecovery/backup/jitbak/
+		cp -f /system/bin/dalvikvm /sdcard/OpenRecovery/backup/jitbak/bin/dalvikvm
+		cp -f /system/bin/dexopt /sdcard/OpenRecovery/backup/jitbak/bin/dexopt
+		cp -f /system/bin/logcat /sdcard/OpenRecovery/backup/jitbak/bin/logcat
+		
+		cp -f /system/lib/libcutils.so /sdcard/OpenRecovery/backup/jitbak/lib/libcutils.so
+		cp -f /system/lib/libdl.so /sdcard/OpenRecovery/backup/jitbak/lib/libdl.so
+		cp -f /system/lib/libdvm.so /sdcard/OpenRecovery/backup/jitbak/lib/libdvm.so
+		cp -f /system/lib/liblog.so /sdcard/OpenRecovery/backup/jitbak/lib/liblog.so
+		cp -f /system/lib/libm.so /sdcard/OpenRecovery/backup/jitbak/lib/libm.so
+		cp -f /system/lib/libnativehelper.so /sdcard/OpenRecovery/backup/jitbak/lib/libnativehelper.so
+		cp -f /system/lib/libz.so /sdcard/OpenRecovery/backup/jitbak/lib/libz.so
+fi
+echo "install JiTv7... credits Samdroid"
+
+cp -f /sdcard/OpenRecovery/mod/jit/system/bin/* /system/bin/
+chmod 755 /system/bin/dalvikvm
+chmod 755 /system/bin/dexopt
+chmod 755 /system/bin/logcat
+chown 0.2000 /system/bin/dalvikvm
+chown 0.2000 /system/bin/dexopt
+chown 0.2000 /system/bin/logcat
+
+cp -f /sdcard/OpenRecovery/mod/jit/system/lib/* /system/lib/
+chmod 644 /system/lib/libcutils.so
+chmod 644 /system/lib/libdl.so
+chmod 644 /system/lib/libdvm.so
+chmod 644 /system/lib/liblog.so
+chmod 644 /system/lib/libm.so
+chmod 644 /system/lib/libnativehelper.so
+chmod 644 /system/lib/libz.so
+chown 0.0 /system/lib/libcutils.so
+chown 0.0 /system/lib/libdl.so
+chown 0.0 /system/lib/libdvm.so
+chown 0.0 /system/lib/liblog.so
+chown 0.0 /system/lib/libm.so
+chown 0.0 /system/lib/libnativehelper.so
+chown 0.0 /system/lib/libz.so
+
+echo "dalvik.vm.execution-mode=int:jit" >> /system/build.prop
+chmod 777 /system/build.prop
+sleep 1

@@ -1,0 +1,10 @@
+#!/sbin/sh
+
+echo "Restoring Menu" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+echo "Remove memhack:shell:/sdcard/OpenRecovery/mod/scripts/restore.sh memhack" >> "$MENU_FILE"
+echo "Remove overclock:shell:/sdcard/OpenRecovery/mod/scripts/restore.sh overclock" >> "$MENU_FILE"
+echo "Remove app2sd:shell:/sdcard/OpenRecovery/mod/scripts/restore.sh app2sd" >> "$MENU_FILE"
+echo "Restore old mot_boot_mode:shell:/sdcard/OpenRecovery/mod/scripts/restore.sh mbm" >> "$MENU_FILE"
+echo "Remove flac support:shell:/sdcard/OpenRecovery/mod/scripts/restore.sh flac" >> "$MENU_FILE"
+echo "Remove jit v7:shell:/sdcard/OpenRecovery/mod/scripts/restore.sh jit" >> "$MENU_FILE"

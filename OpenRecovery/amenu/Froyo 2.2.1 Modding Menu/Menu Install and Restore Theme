@@ -1,0 +1,6 @@
+#!/sbin/sh
+
+echo "Azhad. Theme Menu" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+echo "Install Theme:shell:/sdcard/OpenRecovery/mod/scripts/theme_froyo.sh install" >> "$MENU_FILE"
+echo "Restore Theme:shell:/sdcard/OpenRecovery/mod/scripts/theme_froyo.sh restore" >> "$MENU_FILE"

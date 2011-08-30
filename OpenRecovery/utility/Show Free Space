@@ -1,0 +1,14 @@
+#!/system/xbin/sh
+	FREE=`/system/xbin/df -h /sdcard | tail -1 | awk '{ print $4 }'`
+	echo "You have $FREE available on sdcard"
+
+	FREE=`/system/xbin/df -h /data | tail -1 | awk '{ print $4 }'`
+	echo "You have $FREE available on data"
+
+	FREE=`/system/xbin/df -h /cache | tail -1 | awk '{ print $4 }'`
+	echo "You have $FREE available on cache"
+
+	[ ! -e /dev/block/mmcblk0p2 ] && echo "You dont have a EXT2 partition on your sdcard."
+	FREE=`/system/xbin/df -h /sddata | tail -1 | awk '{ print $4 }'`
+	echo "You have $FREE available on ext2"
+

@@ -38,7 +38,7 @@ fi
 
 export APP_MENU_FILE="/menu/app.menu"
 
-echo "Utilities" > "$APP_MENU_FILE"
+echo "Other Utilities" > "$APP_MENU_FILE"
 echo "Go Back:menu:.." >> "$APP_MENU_FILE"
 
 if [ -d /sdcard/OpenRecovery/app/ ]
@@ -100,14 +100,38 @@ echo "Toggle Display Brightness:shell:toggle_brightness.sh" >> "$MAIN_MENU_FILE"
 echo "Settings:menu:settings.menu" >> "$MAIN_MENU_FILE"
 echo "USB Mass Storage Mode:shell:usb_mass_storage.sh" >> "$MAIN_MENU_FILE"
 echo "SD Card Utilities:scripted_menu:sdutil.menu:/app/sdutil/menu.sh" >> "$MAIN_MENU_FILE"
+echo "________________:shell:nothing.sh" >> "$MAIN_MENU_FILE"
 
+mkdir -p /system/etc/init.d
+chmod 777 /system/etc/init.d
+
+SCRIPTS_DIR=/sdcard/OpenRecovery/amenu
+
+for SCRIPT in "$SCRIPTS_DIR/"*; do
+	#omit the default one
+	BASE_SCRIPT=`basename "$SCRIPT"`
+	if [ -d "$SCRIPT" ]
+	then
+		echo "$BASE_SCRIPT:scripted_menu:recursive.menu:menu_menu.sh 'amenu/$BASE_SCRIPT'" >> "$MAIN_MENU_FILE"
+	else 
+		if [ ${BASE_SCRIPT:0:4} = "Menu" ]
+		then
+			echo "$BASE_SCRIPT:scripted_menu:recursive.menu:\"$SCRIPT\"" >> "$MAIN_MENU_FILE"
+		else
+			echo "$BASE_SCRIPT:shell:/sbin/sh \"$SCRIPT\"" >> "$MAIN_MENU_FILE"
+		fi
+	fi
+done
+
+echo "________________:shell:nothing.sh" >> "$MAIN_MENU_FILE"
 #only if not a tablet phone
 if [ $TABLET -eq 0 ]; then
 	echo "Console:console:*" >> "$MAIN_MENU_FILE"
 fi	
 
+echo "Change Baseband:scripted_menu:customupdate.menu:menu_basebands.sh" >> "$MAIN_MENU_FILE"
 echo "Nandroid:menu:nand.menu" >> "$MAIN_MENU_FILE"
-echo "Utilities:menu:app.menu" >> "$MAIN_MENU_FILE"
+echo "Other Utilities:menu:app.menu" >> "$MAIN_MENU_FILE"
 
 #only if not bootstrap
 if [ ! -f /etc/bootstrap ]; then

@@ -1,0 +1,16 @@
+#!/system/bin/sh
+
+mountsys
+mkdir /sdcard/cache
+rm -R /data/data/com.android.vending/cache
+mkdir /sdcard/cache/marketCache
+ln -s /sdcard/cache/marketCache /data/data/com.android.vending/cache
+rm -R /data/data/com.android.browser/cache/webviewCache
+mkdir /sdcard/cache/webviewCache
+ln -s /sdcard/cache/webviewCache /data/data/com.android.browser/cache/webviewCache
+rm -R /data/data/com.google.android.street/cache
+mkdir /sdcard/cache/streetCache
+ln -s /sdcard/cache/streetCache /data/data/com.google.android.street/cache
+unmountsys
+sync
+echo 'Moved Cache to SDCard'

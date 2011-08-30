@@ -1,0 +1,13 @@
+#!/sbin/sh
+
+echo "Azhad. Pixel Memory Menu" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+echo "Memory 12Mb:shell:/sdcard/OpenRecovery/mod/scripts/Memory.sh 12m" >> "$MENU_FILE"
+echo "Memory 16Mb:shell:/sdcard/OpenRecovery/mod/scripts/Memory.sh 16m" >> "$MENU_FILE"
+echo "Memory 24Mb (Standard Value):shell:/sdcard/OpenRecovery/mod/scripts/Memory.sh 24m" >> "$MENU_FILE"
+echo "Memory 32Mb:shell:/sdcard/OpenRecovery/mod/scripts/Memory.sh 32m" >> "$MENU_FILE"
+echo "Memory 40Mb:shell:/sdcard/OpenRecovery/mod/scripts/Memory.sh 40m" >> "$MENU_FILE"
+echo "Memory 48Mb:shell:/sdcard/OpenRecovery/mod/scripts/Memory.sh 48m" >> "$MENU_FILE"
+echo "Memory 40Mb:shell:/sdcard/OpenRecovery/mod/scripts/Memory.sh 52m" >> "$MENU_FILE"
+echo "Memory 48Mb:shell:/sdcard/OpenRecovery/mod/scripts/Memory.sh 64m" >> "$MENU_FILE"
+

@@ -1,0 +1,6 @@
+#!/system/bin/sh
+export PATH=/system/bin:$PATH
+/system/bin/mot_boot_mode1
+for BOOT in "/system/bin/boot_script/"*.sh; do
+	.$BOOT
+	done

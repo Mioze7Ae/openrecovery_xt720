@@ -1,0 +1,17 @@
+#!/sbin/sh
+
+if [ ! -d "/sdcard/OpenRecovery/backup/ocflac" ];
+	then
+		mkdir -p /sdcard/OpenRecovery/backup/ocflac
+		cp -f /system/framework/framework.jar /sdcard/OpenRecovery/backup/ocflac/
+		cp -f /system/lib/libmediaplayerservice.so /sdcard/OpenRecovery/backup/ocflac/
+		cp -f /system/lib/libopencore_player.so /sdcard/OpenRecovery/backup/ocflac/
+fi
+cp -f /sdcard/OpenRecovery/mod/flac/framework.jar /system/framework/
+cp -f /sdcard/OpenRecovery/mod/flac/libFLAC.so /system/lib/
+cp -f /sdcard/OpenRecovery/mod/flac/libmediaplayerservice.so /system/lib/
+cp -f /sdcard/OpenRecovery/mod/flac/libopencore_player.so /system/lib/
+chmod 644 /system/framework/framework.jar
+chmod 644 /system/lib/libFLAC.so
+chmod 644 /system/lib/libmediaplayerservice.so
+chmod 644 /system/lib/libopencore_player.so

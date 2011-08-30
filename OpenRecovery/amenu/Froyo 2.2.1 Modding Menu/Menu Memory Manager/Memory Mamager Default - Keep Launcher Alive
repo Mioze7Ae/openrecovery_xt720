@@ -1,0 +1,14 @@
+#!/sbin/sh
+
+echo "Memory Manager"
+echo ""
+
+cp -fR /sdcard/OpenRecovery/mod/etc/init.d/memory4.sh /system/etc/init.d/99complete
+
+
+chmod 755 /system/etc/init.d/99complete
+chown 0.2000 /system/etc/init.d/99complete
+
+echo "ro.HOME_APP_ADJ=1" >> /data/local.prop
+
+sleep 1

@@ -1,0 +1,9 @@
+#!/system/bin/sh
+
+mountsys
+busybox mv /system/xbin/hostsshow /system/etc/hosts
+busybox cp /system/etc/hosts /system/xbin
+busybox mv /system/xbin/hosts /system/xbin/hostsshow
+unmountsys
+sync
+echo Ads are now permitted to display... Weirdo!

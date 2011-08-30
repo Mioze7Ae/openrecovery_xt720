@@ -1,0 +1,20 @@
+#!/sbin/bash
+
+SCRIPTS_DIR=/sdcard/OpenRecovery/utility
+
+#recreate the file
+echo "Run Utility" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+
+if [ -d $SCRIPTS_DIR ]
+then
+	for SCRIPT in "$SCRIPTS_DIR/"*; do
+		#omit the default one
+		BASE_SCRIPT=`basename "$SCRIPT"`
+		if [ "$BASE_SCRIPT" != "data" ]
+		then
+			BASE_SCRIPT=`basename "$SCRIPT"`
+			echo "$BASE_SCRIPT:shell:/sbin/sh \"$SCRIPT\"" >> "$MENU_FILE"
+		fi
+	done
+fi

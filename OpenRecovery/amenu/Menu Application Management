@@ -1,0 +1,72 @@
+#!/sbin/sh
+
+VERSION="2.04"
+
+#activating apps2sd
+  export PATH=/system/xbin:/system/bin
+
+  # Check if SDCARD exists
+  [ ! -e /dev/block/mmcblk0 ] && exit 0
+  [ "`mount | grep mmcblk0p2 | awk '{ print $1 }'`" = "/dev/block/mmcblk0p2" ] && umount /dev/block/mmcblk0p2
+  mount /mnt/sdcard
+  if [ ! -e /system/no_apps2sd ] ; then
+	umount /mnt/sdcard
+	insmod /system/lib/modules/ext2.ko
+	echo 255 > /sys/class/leds/blue/brightness
+	[ -e /dev/block/mmcblk0p2 ] && if [ "`mount | grep mmcblk0p2 | awk '{ print $1 }'`" != "/dev/block/mmcblk0p2" ] ; then
+	 mkdir /data/app_sd
+	 mount /dev/block/mmcblk0p2 /data/app_sd
+  	 if [ $? -ne 0 ] ; then
+		res=1
+		echo "`date +'%Y %d %m %H:%M'` : Mount failed"
+		echo "`date +'%Y %d %m %H:%M'` : Mount failed" >>$LOG 
+		chmod 777 /data/app
+		chmod 777 /data/app-private
+		umount /data/app_sd
+	 else
+		for n in `/system/bin/ls /data/app`; do
+			echo 0 > /sys/class/leds/blue/brightness
+			cp /data/app/$n /data/app_sd/ 2>/dev/null 
+			rm /data/app/$n
+			echo "`date +'%Y %d %m %H:%M'` : Moving application - $n" >>$LOG
+			echo 255 > /sys/class/leds/blue/brightness
+		done
+		umount /data/app_sd
+		/sbin/e2fsck -p /dev/block/mmcblk0p2
+		mount /dev/block/mmcblk0p2 /data/app
+		chmod 777 /data/app
+		chmod 777 /data/app-private
+	 fi
+	 rmdir /data/app_sd
+	 echo 0 > /sys/class/leds/blue/brightness
+  	fi
+  	mount /mnt/sdcard
+  fi
+  echo 0 > /sys/class/leds/blue/brightness
+
+  if [ ! -e /data/app/.restored ] ; then
+	if [ -e /mnt/sdcard/internal-apps ] ; then
+		echo 255 > /sys/class/leds/blue/brightness
+		mkdir /data/app
+		cp /mnt/sdcard/internal-apps/* /data/app/
+		chmod 644 /data/app/*.apk
+		touch /data/app/.restored
+		echo 0 > /sys/class/leds/blue/brightness
+	fi
+  elif [ ! -e /data/data/com.android.providers.settings ] ; then
+	if [ -e /mnt/sdcard/internal-apps ] ; then
+		echo 255 > /sys/class/leds/blue/brightness
+		mkdir /data/app
+		cp /mnt/sdcard/internal-apps/* /data/app/
+		chmod 644 /data/app/*.apk
+		touch /data/app/.restored
+		echo 0 > /sys/class/leds/blue/brightness
+	fi
+  fi
+
+echo "Application Management Menu" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+echo "System Apps:scripted_menu:appssystem.menu:/sdcard/OpenRecovery/mod/application_scripts/menu_apps_system.sh 1" >> "$MENU_FILE"
+echo "Internal Apps:scripted_menu:appsinternal.menu:/sdcard/OpenRecovery/mod/application_scripts/menu_apps_internal.sh 1" >> "$MENU_FILE"
+echo "Recovery Apps:scripted_menu:appsrecovery.menu:/sdcard/OpenRecovery/mod/application_scripts/menu_apps_recovery.sh 1" >> "$MENU_FILE"
+#echo "Help:scripted_menu:appshelp.menu:/sdcard/OpenRecovery/mod/application_scripts/menu_apps_help.sh" >> "$MENU_FILE"

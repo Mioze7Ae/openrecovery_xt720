@@ -1,0 +1,14 @@
+#!/sbin/sh
+
+echo "Memhack"
+echo ""
+echo "copying scripts..."
+
+cp -fR /sdcard/OpenRecovery/mod/etc/init.d/02memhack /system/etc/init.d/02memhack
+
+
+chmod 755 /system/etc/init.d/02memhack
+chown -R 0.2000 /system/etc/init.d
+
+
+sleep 1

@@ -1,0 +1,8 @@
+#!/sbin/sh
+
+echo "Busybox Install Menu" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+echo "Install Busybox to /system/bin:shell:busybox.sh bin" >> "$MENU_FILE"
+echo "Install Busybox to /system/sbin:shell:busybox.sh sbin" >> "$MENU_FILE"
+echo "Install Busybox to /system/xbin:shell:busybox.sh xbin" >> "$MENU_FILE"
+echo "Install Busybox to /data/busybox:shell:busybox.sh data" >> "$MENU_FILE"

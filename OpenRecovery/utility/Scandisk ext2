@@ -1,0 +1,9 @@
+#!/system/bin/sh
+#
+
+umount /sddata
+umount /dev/block/mmcblk0p2
+ 
+/sbin/e2fsck -y /dev/block/mmcblk0p2
+
+mount /dev/block/mmcblk0p2 /sddata

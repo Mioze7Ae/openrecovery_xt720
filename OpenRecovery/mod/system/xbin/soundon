@@ -1,0 +1,8 @@
+#!/system/bin/sh
+
+mountsys
+busybox mv /system/media/audio/ui/camera_click.bak /system/media/audio/ui/camera_click.ogg
+busybox mv /system/media/audio/ui/VideoRecord.bak /system/media/audio/ui/VideoRecord.ogg
+unmountsys
+sync
+echo 'Camera & Video Recording Sounds Enabled'

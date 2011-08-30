@@ -5,10 +5,10 @@ echo "Replacing sholesp2a-keypad.kcm.bin."
 cp -f "/sdcard/OpenRecovery/keychars/$1/sholesp2a-keypad.kcm.bin" /system/usr/keychars/sholesp2a-keypad.kcm.bin 2>/dev/null
 chmod 0644 /system/usr/keychars/sholesp2a-keypad.kcm.bin 2>/dev/null
 
-echo "Replacing sholesp2a-keypad.kl"
+#echo "Replacing sholesp2a-keypad.kl"
 
-cp -f "/sdcard/OpenRecovery/keychars/$1/sholesp2a-keypad.kl" /system/usr/keylayout/sholesp2a-keypad.kl 2>/dev/null
-chmod 0644 /system/usr/keylayout/sholesp2a-keypad.kln 2>/dev/null
+#cp -f "/sdcard/OpenRecovery/keychars/$1/sholesp2a-keypad.kl" /system/usr/keylayout/sholesp2a-keypad.kl 2>/dev/null
+#chmod 0644 /system/usr/keylayout/sholesp2a-keypad.kln 2>/dev/null
 
 echo "Patching default.prop."
 

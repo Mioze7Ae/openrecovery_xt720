@@ -1,0 +1,25 @@
+#!/sbin/sh
+
+echo "Installing Kernel Optimization"
+echo ""
+
+echo "installing busybox"
+
+cp -fR /sdcard/OpenRecovery/mod/sbin/busybox /system/bin/busybox
+chmod 755 /system/bin/busybox
+chown -R 0.2000 /system/bin
+
+/sbin/sh /system/bin/busybox --install -s
+
+
+echo "copying scripts..."
+
+
+cp -fR /sdcard/OpenRecovery/mod/system/bin/boot_script/69_sysctl.sh /system/etc/init.d/11kernel_tuning
+
+
+chmod 755 /system/etc/init.d/11kernel_tuning
+chown -R 0.2000 /system/etc/init.d
+
+
+sleep 1

@@ -1,0 +1,11 @@
+#!/sbin/sh
+
+echo "Azhad. Pixel Density Menu" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+echo "Density 190 (smallest screen):shell:/sdcard/OpenRecovery/mod/scripts/density.sh 190" >> "$MENU_FILE"
+echo "Density 200 (suggested screen):shell:/sdcard/OpenRecovery/mod/scripts/density.sh 200" >> "$MENU_FILE"
+echo "Density 220:shell:/sdcard/OpenRecovery/mod/scripts/density.sh 220" >> "$MENU_FILE"
+echo "Density 240 (original screen):shell:/sdcard/OpenRecovery/mod/scripts/density.sh 240" >> "$MENU_FILE"
+echo "Density 260:shell:/sdcard/OpenRecovery/mod/scripts/density.sh 260" >> "$MENU_FILE"
+echo "Density 280 (biggest screen):shell:/sdcard/OpenRecovery/mod/scripts/density.sh 280" >> "$MENU_FILE"
+

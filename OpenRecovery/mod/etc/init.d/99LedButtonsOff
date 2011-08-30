@@ -1,0 +1,7 @@
+#!/system/bin/sh
+
+while
+do 
+sleep 1
+echo 0 >/sys/class/leds/button-backlight/brightness
+done

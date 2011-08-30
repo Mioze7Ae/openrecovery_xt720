@@ -1,0 +1,6 @@
+#!/sbin/sh
+
+echo "Theme Modding Menu" > "$MENU_FILE"
+echo "Go Back:menu:.." >> "$MENU_FILE"
+echo "Install Theme:shell:/sdcard/OpenRecovery/mod/scripts/theme.sh install" >> "$MENU_FILE"
+echo "Restore Old Theme:shell:/sdcard/OpenRecovery/mod/scripts/theme.sh restore" >> "$MENU_FILE"

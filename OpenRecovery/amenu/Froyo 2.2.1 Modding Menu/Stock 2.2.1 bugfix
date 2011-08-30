@@ -1,0 +1,18 @@
+#!/sbin/sh
+
+echo "install market fix for 2.2.1..."
+sed -i "s/ro.build.fingerprint=.*/ro.build.fingerprint=verizon\/voles\/sholes\/sholes:2.2\/FRG22D\/50454:user\/release-keys/g" /system/build.prop
+sed -i "s/ro.build.description=.*/ro.build.description=voles-user 2.2 FRG22D 50454 release-keys/g" /system/build.prop
+echo "...install done"
+echo "install DNS Fix..."
+if grep -q dns1 /system/default.prop ; then
+	echo "already applied, no changes made"
+else
+	echo "net.dns1=8.8.8.8" >> /system/default.prop
+	echo "net.dns2=8.8.4.4" >> /system/default.prop
+	echo "net.rmnet0.dns1=8.8.8.8" >> /system/default.prop
+	echo "net.rmnet0.dns2=8.8.4.4" >> /system/default.prop
+	echo "dns properties added to default.prop"
+fi
+echo "...install done"
+sleep 1
