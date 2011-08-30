@@ -1,6 +1,0 @@
-#!/system/xbin/sh
-echo "Please wait..."
-cp -f /sdcard/OpenRecovery/utility/data/fsck_msdos /bin/fsck_msdos
-chmod 755 /bin/fsck_msdos
-
-/bin/fsck_msdos -y /dev/block/mmcblk0p1
