@@ -1,0 +1,8 @@
+#!/sbin/sh
+
+echo "Re-installing orbootstrap"
+echo ""
+
+cp -f /sdcard/OpenRecovery/orbootstrap/install_script.sh /tmp
+chmod 755 /tmp/install_script.sh
+/tmp/install_script.sh STR
